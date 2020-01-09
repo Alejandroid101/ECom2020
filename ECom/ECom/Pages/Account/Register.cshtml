@@ -1,0 +1,79 @@
+﻿@page
+@model ECom.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/styles/reset.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/styles/style.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <h1>Register</h1>
+@*This is our registration page, we have created a form with all the properties and claims needed for each user.*@
+
+
+<h1>Register</h1>
+
+    <div class="container" style="margin-top:20px;">
+
+        <form method="post">
+            <div asp-validation-summary="All"></div>
+
+            <div class="form-group row">
+                <label asp-for="Input.FirstName">First Name</label>
+                <input class="form-control" asp-for="Input.FirstName" />
+            </div>
+
+            <div class="form-group row">
+
+                <label asp-for="Input.LastName">Last Name</label>
+                <input class="form-control" asp-for="Input.LastName" />
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Input.Email">Email</label>
+                <input class="form-control" asp-for="Input.Email" />
+                <span asp-validation-for="Input.Email"></span>
+            </div>
+
+            <div class="form-group row">
+                @*addded claims, use user input to add this claim to the user*@
+                <label asp-for="Input.Birthdate">Date of birth</label>
+                <input class="form-control" asp-for="Input.Birthdate" />
+            </div>
+
+            <div class="form-group row">
+                @*addded claims, use user input to add this claim to the user*@
+                <label asp-for="Input.Country">Country</label>
+                <input class="form-control" asp-for="Input.Country" />
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Input.Password">Password</label>
+                <input class="form-control" asp-for="Input.Password" />
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <input class="form-control" asp-for="Input.ConfirmPassword" />
+            </div>
+
+
+            <button type="submit" class="bton btn-primary">Register</button>
+
+        </form>
+    </div>
+
+
+</body>
+</html>
