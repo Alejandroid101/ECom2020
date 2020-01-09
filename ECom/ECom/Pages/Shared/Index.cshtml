@@ -1,0 +1,39 @@
+﻿@page
+@model ECom.Pages.Show.indexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/styles/reset.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/styles/style.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <h1>Luxury cars</h1>
+    <div class="container">
+
+        @foreach (var item in Model.Products)
+        {
+
+            <img src="@Html.DisplayFor(modelItem => item.Image)" /><br />
+
+            @Html.DisplayFor(modelItem => item.Name)<br />
+            @Html.DisplayFor(modelItem => item.Year)<br />
+            @Html.DisplayFor(modelItem => item.Price)<br />
+            <div class="btn btn-primary">
+                <a id="backbtn" asp-page="details" asp-route-id="@item.ID">Details</a>
+            </div><br />
+        }
+    </div>
+
+</body>
+</html>
